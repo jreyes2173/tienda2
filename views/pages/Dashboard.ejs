@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <% flash.get('mensaje').forEach(function (msg) { %>
+    <div class="alert alert-info text-center" role="alert">
+      <%=msg%>
+    </div>
+    <% }) %>
+
+    <h2>Ordenes</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Total Cliente</th>
+          <th scope="col">Total Fotos</th>
+          <th scope="col">Total administradores</th>
+          <th scope="col">Total Ordenes</th>
+        </tr>
+      </thead>
+      <tbody>        
+        <td scope="row"><%=tcliente%></td>
+        <td scope="row"><%=tfoto%></td>
+        <td scope="row"><%=tadmin%></td>
+        <td scope="row"><%=torden%></td>
+      </tbody>
+    </table>
+
+  </div>
+</div>

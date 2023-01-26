@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h2>Fiscalizacion de Brigada</h2>
+
+    <% flash.get('mensaje').forEach(function (msg) { %>
+    <div class="alert alert-danger" role="alert">
+      <%=msg%>
+    </div>
+    <% }) %>
+
+    <form action="/procesar-ficha" method="post">
+      <div class="form-group">
+        <label for="hora">hora</label>
+        <input type="time" class="form-control" id="hora" name="hora" required>
+      </div>
+      <div class="form-group">
+        <label for="fecha">fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" required>
+      </div>
+      <div class="form-group">
+        <label for="region">Region</label>
+        <input type="text" class="form-control" id="region" name="region" required>
+        </div>
+        <div class="form-group">
+          <label for="supervisor">Supervisor</label>
+          <input type="text" class="form-control" id="supervisor" name="supervisor" required>
+          </div>  
+      <div class="form-group">   
+      <label for="programa">Direccion o Programa</label>
+    <select name="programa" >
+       <optgroup label="Direccion" required>
+         <option value="">Seleccione</option>
+          <option value="RDvial">RDvial</option>
+          <option value="Peon Caminero">Peon Caminero</option>
+          <option value="Pavimentacion">Pavimentacion</option>
+          <option value="Señalizacion">Señalizacion</option>
+        </optgroup><optgroup label="Programa">
+          <option value="Programa Social">Programas Sociales y Comunitarios</option>
+          
+        </optgroup>
+     </select>
+    </div>
+
+    <div class="form-group">
+      <label for="capataz">Capataz</label>
+      <input type="text" class="form-control" id="capataz" name="capataz" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ubicacion">Ubicacion</label>
+        <input type="text" class="form-control" id="ubicacion" name="ubicacion" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cant_jornalero">Cant. Jornalero mas Capataz</label>
+          <input type="number" class="form-control" id="cant_jornalero" name="cant_jornalero" required>
+          </div>  
+
+      
+      <button type="submit" class="btn btn-primary">Continuar</button>
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>
