@@ -71,9 +71,8 @@ module.exports = {
     respuesta.view('pages/mis_ordenes', { ordenes })
   },
 
-  fichas: async (peticion, respuesta) => {
-    let cliente1 = await Cliente.find({ cliente: peticion.session.cliente.id} ).sort('id desc')  
-    respuesta.view('pages/fichas',cliente1)
+  fichas: async (peticion, respuesta) => {      
+    respuesta.view('pages/fichas')
   },
 
   ordenDeCompra: async (peticion, respuesta) => {

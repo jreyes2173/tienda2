@@ -35,17 +35,18 @@ module.exports = {
   },
 
   procesarFicha: async (peticion, respuesta) => {
-    let hora=peticion.body.hora;    
+   // let hora=peticion.body.hora;    
 
-    console.log(hora)
-    let cliente = await Cliente.findOne({ id: peticion.session.id });  
+    //console.log(hora)
+      
+    let ficha = await Ficha.findOne({ capataz: peticion.body.capataz });    
     
    if (ficha) {
       peticion.addFlash('mensaje', 'Email duplicado')
-      return respuesta.redirect("/registro");
+      return respuesta.redirect("/fichas");
     }
     else {
-      let ficha = await ficha.create({
+      let ficha = await Ficha.create({
         hora: peticion.body.hora,
         fecha: peticion.body.fecha,
         region: peticion.body.region,
@@ -54,9 +55,9 @@ module.exports = {
         capataz: peticion.body.capataz,
         ubicacion: peticion.body.ubicacion,
         cant_jornalero: peticion.body.cant_jornalero,
-        cliente_id: session.cliente.id
+        cliente_id: peticion.body.cliente_id
       })
-      peticion.session.cliente = cliente;
+      //peticion.session.cliente = cliente;
       peticion.addFlash('mensaje', 'Cliente registrado')
       return respuesta.redirect("/");
     }

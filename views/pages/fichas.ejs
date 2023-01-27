@@ -8,7 +8,7 @@
       <%=msg%>
     </div>
     <% }) %>
-
+    
     <form action="/procesar-ficha" method="post">
       <div class="form-group">
         <label for="hora">hora</label>
@@ -55,8 +55,12 @@
         <div class="form-group">
           <label for="cant_jornalero">Cant. Jornalero mas Capataz</label>
           <input type="number" class="form-control" id="cant_jornalero" name="cant_jornalero" required>
-          </div>  
-
+          </div>            
+          <div class="form-group">
+            <label for="cliente_id">cliente_id</label>
+            <input type="number" class="form-control" id="cliente_id" name="cliente_id" value="<%=session.cliente.id%> " required>
+            </div>
+          
       
       <button type="submit" class="btn btn-primary">Continuar</button>
     </form>
